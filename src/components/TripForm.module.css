@@ -1,0 +1,85 @@
+.formContainer {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--foreground) / 0.8);
+    margin-left: 0.25rem;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    color: hsl(var(--foreground) / 0.5);
+    pointer-events: none;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: hsl(var(--background) / 0.5);
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsla(var(--hue-primary), 80%, 60%, 0.2);
+    background: hsl(var(--background));
+}
+
+.tripTypes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.typeBtn {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    background: transparent;
+    color: hsl(var(--foreground) / 0.7);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.typeBtn:hover {
+    background: hsl(var(--background) / 0.5);
+    color: hsl(var(--foreground));
+}
+
+.typeBtn.active {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+}
+
+.submitBtn {
+    margin-top: 1rem;
+    width: 100%;
+}
