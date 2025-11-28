@@ -45,13 +45,13 @@ export default function ChatAssistant() {
     };
 
     return (
-        <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '100%', marginTop: '0' }}>
-            <div style={{ padding: '1rem', borderBottom: '1px solid hsl(var(--border))', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '100%', marginTop: '0', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
+            <div style={{ padding: '1rem', borderBottom: '1px solid hsl(var(--border))', display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
                 <Bot size={20} color="hsl(var(--primary))" />
                 <h3 style={{ fontSize: '1rem', fontWeight: '600' }}>Trip Assistant</h3>
             </div>
 
-            <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem', minHeight: 0 }}>
                 {messages.map((msg) => (
                     <div
                         key={msg.id}
@@ -65,7 +65,9 @@ export default function ChatAssistant() {
                             borderBottomRightRadius: msg.role === 'user' ? '0.25rem' : '1rem',
                             borderBottomLeftRadius: msg.role === 'assistant' ? '0.25rem' : '1rem',
                             fontSize: '0.9rem',
-                            lineHeight: '1.4'
+                            lineHeight: '1.4',
+                            wordWrap: 'break-word',
+                            overflowWrap: 'break-word'
                         }}
                     >
                         {msg.text}
@@ -74,7 +76,7 @@ export default function ChatAssistant() {
                 <div ref={messagesEndRef} />
             </div>
 
-            <form onSubmit={handleSend} style={{ padding: '1rem', borderTop: '1px solid hsl(var(--border))', display: 'flex', gap: '0.5rem' }}>
+            <form onSubmit={handleSend} style={{ padding: '1rem', borderTop: '1px solid hsl(var(--border))', display: 'flex', gap: '0.5rem', flexShrink: 0 }}>
                 <input
                     type="text"
                     placeholder="Ask about stops, food..."
@@ -87,13 +89,14 @@ export default function ChatAssistant() {
                         border: '1px solid hsl(var(--border))',
                         background: 'hsl(var(--background) / 0.5)',
                         color: 'hsl(var(--foreground))',
-                        outline: 'none'
+                        outline: 'none',
+                        minWidth: 0
                     }}
                 />
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    style={{ padding: '0.75rem', borderRadius: '0.5rem' }}
+                    style={{ padding: '0.75rem', borderRadius: '0.5rem', flexShrink: 0 }}
                 >
                     <Send size={18} />
                 </button>
